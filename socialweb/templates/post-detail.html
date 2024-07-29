@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block parent%}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush ">
+                  <!-- Product image-->
+                  {%if posts.image%}
+                  <img class="card-img-top" src="{{posts.image.url}}" alt="..." />
+                  {%else%}
+                  <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                  {%endif%}
+                  
+                  <li class="list-group-item"> {{posts.title}}</li>
+                  <li class="list-group-item">{{posts.description}}</li>
+                  <li class="list-group-item">{{posts.date}}</li>
+                  <li class="list-group-item">{{posts.user}}</li>
+                </ul>
+              </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block parent%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <p>{{request.user}}</p>
+          {%for p in profile%}
+      <img src="    {{p.profile_pic.url}}" alt="">
+      <p>{{p.bio}}</p>
+      <img src="   {{p.time_line_pic.url}}" alt="">
+      
+          {%endfor%}
+        </div>
+        {%if request.user.profile%}
+            
+            <a href="{%url 'profile-change' request.user.profile.id%}">Update Profile</a>
+        {%else%}
+            <a href="{%url 'profile-create'%}" class="btn btn-primary">Create Profile</a>
+        {%endif%}
+        <div class="col-4"></div>
+        
+    </div>
+</div>
+
+{%endblock%}

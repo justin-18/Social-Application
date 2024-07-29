@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+
+{%block parent%}
+
+<section class="blog_area  single-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+           
+                <div class="col-lg-8">
+                    <div class="main_blog_details">
+                        {%for p in posts%}
+                        <h4>{{p.title}}</h4>
+                        {%if p.image%}
+                        <img class="card-img-top" src="{{p.image.url}}" alt="..." / height="300px" width="100px">
+                        {%else%}
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        {%endif%}
+    
+                      
+    
+                        <div class="user_details">
+                            <div class="float-left">
+                                <a href="#">Lifestyle</a>
+                                <a href="#">Gadget</a>
+                            </div>
+                            <div class="float-right">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h5>{{p.user}}</h5>
+                                        <p>{{p.date}}</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <img src="img/blog/user-img.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{p.description}}</p>
+                        <div class="news_d_footer">
+                            <a href="#"><i class="lnr lnr lnr-heart"></i>Lily and 4 people like this</a>
+                            <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06
+                                Comments</a>
+                            <div class="news_socail ml-auto">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                            </div>
+                            
+                        </div>
+                        <ul>
+                            <li class="nav-item">
+                                <a class="link-offset-2 link-underline link-underline-opacity-100" href="{%url 'post-edit' p.id%}">Post Edit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="link-offset-2 link-underline link-underline-opacity-100" href="{%url 'post-delete' p.id%}">Post Delete</a>
+                            </li>
+                        </ul>
+                        
+                        {%endfor%}
+                    </div>
+    
+    
+                </div>
+            </div>
+            <div class="col-2"></div>
+
+
+        </div>
+    </div>
+</section>
+
+{%endblock%}
